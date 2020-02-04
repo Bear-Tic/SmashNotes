@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import { getAllCharacters } from './api/api';
 
-function App() {
+const App = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [characters, setCharacters] = useState();
+
+  useEffect( () => {
+    const fetchData = async () => {
+      setCharacters(await getAllCharacters());
+      setIsLoading(false);
+    }
+    fetchData();
+  }, [setCharacters]);
+
   return (
     <div className="App">
+      {console.log('lala', characters)}
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        {isLoading ?
+          'Loading...'
+            :
+            (
+              characters.map((character, index) => <div key={index}>{character.data.name}</div>)
+            )
+        }
       </header>
     </div>
   );
-}
+};
 
 export default App;
