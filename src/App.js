@@ -1,30 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import { getAllCharacters } from './api/api';
+import React from 'react';
+import "./scss/index.scss";
+import { SignUp } from './ui/pages/SignUp';
+import { Header } from './ui/components/Header';
+import { Nav } from './ui/components/Nav';
 
 const App = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [characters, setCharacters] = useState();
-
-  useEffect( () => {
-    const fetchData = async () => {
-      setCharacters(await getAllCharacters());
-      setIsLoading(false);
-    }
-    fetchData();
-  }, [setCharacters]);
-
   return (
     <div className="App">
-      {console.log('lala', characters)}
-      <header className="App-header">
-        {isLoading ?
-          'Loading...'
-            :
-            (
-              characters.map((character, index) => <div key={index}>{character.data.name}</div>)
-            )
-        }
-      </header>
+      <Header />
+      <div className="p-body">
+        <SignUp />
+      </div>
+      <Nav />
     </div>
   );
 };
