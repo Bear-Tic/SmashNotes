@@ -64,7 +64,6 @@ const smashNotesTheme = {
     },
     MuiBottomNavigation: {
       root: {
-        height: '70px',
       },
     },
   },
