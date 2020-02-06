@@ -1,6 +1,6 @@
 const primaryColor = '#0000FF';
 
-const prolicentTheme = {
+const smashNotesTheme = {
   breakpoints: {
     keys: [
       'xs',
@@ -56,98 +56,7 @@ const prolicentTheme = {
     '0px 11px 15px -7px rgba(37, 59, 49, .06),0px 24px 38px 3px rgba(37, 59, 49, .06),0px 9px 46px 8px rgba(37, 59, 49, .06)',
   ],
   direction: 'ltr',
-  overrides: {
-    MuiExpansionPanelDetails: {
-      root: {
-        overflowX: 'auto',
-      },
-    },
-    MuiExpansionPanel: {
-      root: {
-        marginBottom: '1rem',
-        '&:before': {
-          display: 'none',
-        },
-      },
-      expanded: {
-        marginBottom: '1rem !important',
-      },
-    },
-    MuiTableCell: {
-      root: {
-        padding: '4px 10px',
-      },
-    },
-    MuiDialogContent: {
-      root: {
-        overflowY: 'visible',
-      },
-    },
-    MuiDialog: {
-      paper: {
-        maxWidth: '800px',
-        overflowY: 'initial',
-      },
-      paperWidthSm: {
-        maxWidth: '800px',
-      },
-      paperFullScreen: {
-        overflow: 'scroll',
-      },
-    },
-    MuiInput: {
-      root: {
-        maxWidth: '75vw',
-        width: 'calc(100% - 100px)',
-      },
-    },
-    MuiFormControl: {
-      root: {
-        display: 'inline-block',
-      },
-    },
-    MuiFormControlLabel: {
-      root: {
-        marginRight: '2rem',
-      },
-    },
-    MuiFormGroup: {
-      root: {
-        alignItems: 'center',
-      },
-    },
-    MuiIcon: {
-      root: {
-        marginLeft: '30px',
-      },
-    },
-    MuiLink: {
-      root: {
-        textDecoration: 'none',
-        fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-      },
-    },
-    linkStyle: {
-      textDecoration: 'none',
-      color: primaryColor,
-      fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-    },
-    MuiListItem: {
-      button: {
-        color: primaryColor,
-      },
-    },
-    MuiTypography: {
-      root: {
-        color: '#3F3F3F',
-      },
-    },
-    MuiCard: {
-      root: {
-        fontFamily: 'Arial',
-      },
-    },
-  },
+  overrides: {},
   transitions: {
     easing: {
       easeInOut: 'cubic-bezier(0.4, 0, 0.2, 1)',
@@ -169,51 +78,34 @@ const prolicentTheme = {
     useNextVariants: true,
 
     h1: {
-      marginLeft: '-.04em',
-      color: 'rgba(0, 0, 0, 0.54)',
-      fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-      letterSpacing: '-.04em',
-      lineHeight: '1.14286em',
-      fontSize: '7rem',
-      fontWeight: 300,
+      fontSize: "3rem",
+      fontFamily: '"Poppins", "Roboto", "Helvetica", "Arial", sans-serif',
+      fontWeight: 600,
     },
     h2: {
-      marginLeft: '-.02em',
-      color: 'rgba(0, 0, 0, 0.54)',
-      fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-      letterSpacing: '-.02em',
-      lineHeight: '1.30357em',
-      fontSize: '3.5rem',
+      fontSize: "2.5rem",
+      fontFamily: '"Poppins", "Roboto", "Helvetica", "Arial", sans-serif',
       fontWeight: 400,
     },
     h3: {
-      marginLeft: '-.02em',
-      color: 'rgba(0, 0, 0, 0.54)',
-      fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-      lineHeight: '1.13333em',
-      fontSize: '1.825em',
+      fontSize: "2rem",
+      fontFamily: '"Poppins", "Roboto", "Helvetica", "Arial", sans-serif',
       fontWeight: 400,
     },
     h4: {
-      color: 'rgba(0, 0, 0, 0.54)',
-      fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-      lineHeight: '1.20588em',
-      fontSize: '1.3em',
+      fontSize: "1.7rem",
+      fontFamily: '"Poppins", "Roboto", "Helvetica", "Arial", sans-serif',
       fontWeight: 400,
-      textDecoration: 'none',
     },
     h5: {
-      color: 'rgba(0, 0, 0, 0.87)',
-      fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-      lineHeight: '1.35417em',
-      fontSize: '1.5rem',
+      fontFamily: '"Poppins", "Roboto", "Helvetica", "Arial", sans-serif',
+      fontSize: "1.5rem",
       fontWeight: 400,
+      fontStyle: "italic",
     },
     h6: {
       color: 'rgba(0, 0, 0, 0.87)',
-      fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-      lineHeight: '1.16667em',
-      fontSize: '1.3125rem',
+      fontFamily: '"Poppins", "Roboto", "Helvetica", "Arial", sans-serif',
       fontWeight: 500,
     },
     fontWeightLight: 300,
@@ -221,39 +113,29 @@ const prolicentTheme = {
     button: {
       textTransform: 'uppercase',
       color: 'rgba(0, 0, 0, 0.87)',
-      fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-      fontSize: '0.875rem',
+      fontFamily: '"Poppins", "Roboto", "Helvetica", "Arial", sans-serif',
       fontWeight: 500,
     },
-    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+    fontFamily: '"Poppins", "Roboto", "Helvetica", "Arial", sans-serif',
     body2: {
       color: 'rgba(0, 0, 0, 0.87)',
-      fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-      lineHeight: '1.71429em',
-      fontSize: '0.875rem',
+      fontFamily: '"Poppins", "Roboto", "Helvetica", "Arial", sans-serif',
       fontWeight: 500,
     },
     caption: {
       color: 'rgba(0, 0, 0, 0.54)',
-      fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-      lineHeight: '1.375em',
-      fontSize: '0.75rem',
+      fontFamily: '"Poppins", "Roboto", "Helvetica", "Arial", sans-serif',
       fontWeight: 400,
     },
-    fontSize: 14,
     fontWeightMedium: 500,
     subtitle1: {
       color: 'rgba(0, 0, 0, 0.87)',
-      fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-      lineHeight: '1.5em',
-      fontSize: '1rem',
+      fontFamily: '"Poppins", "Roboto", "Helvetica", "Arial", sans-serif',
       fontWeight: 400,
     },
     body1: {
       color: 'rgba(0, 0, 0, 0.87)',
-      fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-      lineHeight: '1.46429em',
-      fontSize: '0.875rem',
+      fontFamily: '"Poppins", "Roboto", "Helvetica", "Arial", sans-serif',
       fontWeight: 400,
     },
   },
@@ -269,9 +151,6 @@ const prolicentTheme = {
     borderRadius: 4,
   },
   props: {},
-  spacing: {
-    unit: 8,
-  },
   palette: {
     tonalOffset: 0.2,
     background: {
@@ -333,7 +212,7 @@ const prolicentTheme = {
       main: '#28c27d',
     },
   },
-  themeName: 'ProlicentUI',
+  themeName: 'SmashNotesTheme',
 };
 
-export default prolicentTheme;
+export default smashNotesTheme;
