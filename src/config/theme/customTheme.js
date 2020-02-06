@@ -1,4 +1,4 @@
-const primaryColor = '#0000FF';
+const primaryColor = '#F62436';
 
 const smashNotesTheme = {
   breakpoints: {
@@ -56,7 +56,18 @@ const smashNotesTheme = {
     '0px 11px 15px -7px rgba(37, 59, 49, .06),0px 24px 38px 3px rgba(37, 59, 49, .06),0px 9px 46px 8px rgba(37, 59, 49, .06)',
   ],
   direction: 'ltr',
-  overrides: {},
+  overrides: {
+    MuiBottomNavigationAction: {
+      root: {
+        maxWidth: '100%',
+      },
+    },
+    MuiBottomNavigation: {
+      root: {
+        height: '70px',
+      },
+    },
+  },
   transitions: {
     easing: {
       easeInOut: 'cubic-bezier(0.4, 0, 0.2, 1)',
@@ -76,7 +87,6 @@ const smashNotesTheme = {
   },
   typography: {
     useNextVariants: true,
-
     h1: {
       fontSize: "3rem",
       fontFamily: '"Poppins", "Roboto", "Helvetica", "Arial", sans-serif',
@@ -95,7 +105,7 @@ const smashNotesTheme = {
     h4: {
       fontSize: "1.7rem",
       fontFamily: '"Poppins", "Roboto", "Helvetica", "Arial", sans-serif',
-      fontWeight: 400,
+      fontWeight: 'bold',
     },
     h5: {
       fontFamily: '"Poppins", "Roboto", "Helvetica", "Arial", sans-serif',
