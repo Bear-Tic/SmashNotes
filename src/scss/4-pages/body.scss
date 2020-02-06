@@ -4,6 +4,9 @@ html, body, #root, .p-body{
 
 .p-body {
   position: relative;
+  &__main {
+    padding-top: 56px;
+  }
   &__navigation {
     overflow: hidden;
     position: fixed;

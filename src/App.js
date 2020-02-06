@@ -14,7 +14,9 @@ const App = () => {
           <CssBaseline />
           <div className="p-body">
             <Header />
-            <SignUp />
+            <div className="p-body__main">
+              <SignUp />
+            </div>
             <Nav />
           </div>
       </MuiThemeProvider>

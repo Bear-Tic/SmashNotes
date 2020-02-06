@@ -80,7 +80,7 @@ export const Header = () => {
 
   return (
     <div>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar>
           <IconButton onClick={toggleDrawer('left', true)} edge="start" color="inherit" aria-label="menu">
             <MenuIcon />
