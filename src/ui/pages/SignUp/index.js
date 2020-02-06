@@ -1,9 +1,12 @@
 import React from 'react';
+import { Typography } from '@material-ui/core';
 
 export const SignUp = () => {
   return (
     <>
-      SignUp Component
+      <div>
+        <Typography>SignUp Component</Typography>
+      </div>
     </>
   );
 };
