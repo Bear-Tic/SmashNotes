@@ -1,4 +1,4 @@
 import { createMuiTheme } from '@material-ui/core/styles';
-import theme from './customTheme';
+import smashNotesTheme from './customTheme';
 
-export default createMuiTheme(theme);
+export default createMuiTheme(smashNotesTheme);

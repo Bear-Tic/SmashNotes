@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getAllCharacters } from '../../../api/api';
-import { Card } from '@material-ui/core';
+import { Card, Button } from '@material-ui/core';
 
 export const MyMains = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -16,13 +16,16 @@ export const MyMains = () => {
 
   return (
     <>
-      {isLoading ?
+      {/* {isLoading ?
         'Loading...'
           :
           (
             characters.map((character, index) => <Card key={index}>{character.data.name}</Card>)
           )
-      }
+      } */}
+      <Button color="primary">
+        Lalala
+      </Button>
     </>
   );
 };

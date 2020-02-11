@@ -1,4 +1,5 @@
-const primaryColor = '#F62436';
+const white = '#F9F9F9';
+const primaryColor= "#D4792E";
 
 const smashNotesTheme = {
   breakpoints: {
@@ -57,13 +58,36 @@ const smashNotesTheme = {
   ],
   direction: 'ltr',
   overrides: {
+    MuiDrawer: {
+      paper: {
+        background: '#262626',
+        color: white,
+      },
+    },
+    MuiPaper: {
+      elevation4: {
+        boxShadow: 'none',
+      },
+    },
+    MuiButton: {
+      textPrimary: {
+        background: primaryColor,
+      },
+    },
+    MuiAppBar: {
+      colorPrimary: {
+        backgroundColor: 'transparent',
+      },
+    },
     MuiBottomNavigationAction: {
       root: {
         maxWidth: '100%',
+        color: '#7B7B7B',
       },
     },
     MuiBottomNavigation: {
       root: {
+        backgroundColor: 'transparent',
       },
     },
   },
@@ -87,33 +111,38 @@ const smashNotesTheme = {
   typography: {
     useNextVariants: true,
     h1: {
+      color: white,
       fontSize: "3rem",
       fontFamily: '"Poppins", "Roboto", "Helvetica", "Arial", sans-serif',
       fontWeight: 600,
     },
     h2: {
+      color: white,
       fontSize: "2.5rem",
       fontFamily: '"Poppins", "Roboto", "Helvetica", "Arial", sans-serif',
       fontWeight: 400,
     },
     h3: {
+      color: white,
       fontSize: "2rem",
       fontFamily: '"Poppins", "Roboto", "Helvetica", "Arial", sans-serif',
       fontWeight: 400,
     },
     h4: {
+      color: white,
       fontSize: "1.7rem",
       fontFamily: '"Poppins", "Roboto", "Helvetica", "Arial", sans-serif',
       fontWeight: 'bold',
     },
     h5: {
+      color: white,
       fontFamily: '"Poppins", "Roboto", "Helvetica", "Arial", sans-serif',
       fontSize: "1.5rem",
       fontWeight: 400,
       fontStyle: "italic",
     },
     h6: {
-      color: 'rgba(0, 0, 0, 0.87)',
+      color: white,
       fontFamily: '"Poppins", "Roboto", "Helvetica", "Arial", sans-serif',
       fontWeight: 500,
     },
@@ -127,7 +156,7 @@ const smashNotesTheme = {
     },
     fontFamily: '"Poppins", "Roboto", "Helvetica", "Arial", sans-serif',
     body2: {
-      color: 'rgba(0, 0, 0, 0.87)',
+      color: white,
       fontFamily: '"Poppins", "Roboto", "Helvetica", "Arial", sans-serif',
       fontWeight: 500,
     },
@@ -214,7 +243,7 @@ const smashNotesTheme = {
       active: 'rgba(0, 0, 0, 0.54)',
     },
     primary: {
-      main: primaryColor,
+      main: white,
       contrastText: '#FAFAFA',
     },
     tertiary: {

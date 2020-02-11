@@ -4,8 +4,12 @@ html, body, #root, .p-body{
 
 .p-body {
   position: relative;
+  background-image: radial-gradient(#4E4E4E 5%,#262626 150%);
   &__main {
     padding-top: 56px;
+    @media (min-width: 600px) {
+      padding-top: 64px;
+    }
   }
   &__navigation {
     overflow: hidden;
