@@ -14,20 +14,22 @@ app.get('/', (req, res) => {
 
 // API CRUD
 
-app.post('/api/create', (req, res) => {
-  (async () => {
-      try {
-        await db.collection('characters').doc('/' + req.body.id + '/')
-            .create({name: req.body.name});
-        return res.status(200).send();
-      } catch (error) {
-        console.log(error);
-        return res.status(500).send(error);
-      }
-    })();
-});
+// create character
 
-// read all
+// app.post('/api/create', (req, res) => {
+//   (async () => {
+//       try {
+//         await db.collection('characters').doc('/' + req.body.id + '/')
+//             .create({name: req.body.name});
+//         return res.status(200).send();
+//       } catch (error) {
+//         console.log(error);
+//         return res.status(500).send(error);
+//       }
+//     })();
+// });
+
+// read characters
 app.get('/api/characters', (req, res) => {
   (async () => {
       try {
@@ -53,7 +55,7 @@ app.get('/api/characters', (req, res) => {
       })();
 });
 
-// read item
+// read character
 app.get('/api/characters/:character_id', (req, res) => {
   (async () => {
       try {
@@ -68,7 +70,7 @@ app.get('/api/characters/:character_id', (req, res) => {
       })();
 });
 
-// update
+// update character
 app.put('/api/update/:character_id', (req, res) => {
 (async () => {
   try {
@@ -84,7 +86,7 @@ app.put('/api/update/:character_id', (req, res) => {
   })();
 });
 
-// delete
+// delete character
 app.delete('/api/delete/:character_id', (req, res) => {
 (async () => {
   try {
@@ -97,6 +99,70 @@ app.delete('/api/delete/:character_id', (req, res) => {
   }
   })();
 });
+
+// USERS
+// TODO ALL
+
+// read users
+app.get('/api/users', (req, res) => {
+  (async () => {
+      try {
+          let query = db.collection('users');
+          let response = [];
+          await query.get().then(querySnapshot => {
+          let docs = querySnapshot.docs;
+          for (let doc of docs) {
+              console.log(doc.data());
+              const selectedUser = {
+                  id: doc.id,
+                  data: doc.data()
+              };
+              response.push(selectedUser);
+          }
+          return;
+          });
+          return res.status(200).send(response);
+      } catch (error) {
+          console.log(error);
+          return res.status(500).send(error);
+      }
+      })();
+});
+
+
+// read user
+app.get('/api/users/:user_id', (req, res) => {
+  (async () => {
+      try {
+          const document = db.collection('users').doc(req.params.user_id);
+          let user = await document.get();
+          let response = user.data();
+          return res.status(200).send(response);
+      } catch (error) {
+          console.log(error);
+          return res.status(500).send(error);
+      }
+      })();
+});
+
+// Create user
+
+app.post('/api/create/user', (req, res) => {
+  (async () => {
+      try {
+        await db.collection('users').doc('/' + req.body.id + '/')
+            .create({
+              id: req.body.id,
+              mail: req.body.mail,
+            });
+        return res.status(200).send();
+      } catch (error) {
+        console.log(error);
+        return res.status(500).send(error);
+      }
+    })();
+});
+
 
 exports.app = functions.https.onRequest(app);
 

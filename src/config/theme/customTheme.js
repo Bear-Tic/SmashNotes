@@ -87,7 +87,7 @@ const smashNotesTheme = {
     },
     MuiBottomNavigation: {
       root: {
-        backgroundColor: 'transparent',
+        backgroundColor: '#4E4E4E',
       },
     },
   },

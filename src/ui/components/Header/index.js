@@ -10,6 +10,9 @@ import Menu from '@material-ui/core/Menu';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import { makeStyles } from '@material-ui/core/styles';
+import * as firebase from 'firebase';
+import 'firebase/auth';
+import { createUser, getUser } from '../../../api/api';
 
 const useStyles = makeStyles({
   list: {
@@ -17,7 +20,7 @@ const useStyles = makeStyles({
   },
 });
 
-export const Header = () => {
+export const Header = ({ user, signOut, signInWithGoogle }) => {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [state, setState] = React.useState({
@@ -58,8 +61,20 @@ export const Header = () => {
     </div>
   );
 
+  const signIn = async () => {
+    await signInWithGoogle();
+    const user = await firebase.auth().currentUser;
+    console.log(user);
+    if(user && user.uid && user.email) {
+      const test = await getUser(user.uid);
+      if(!test.id & test.status===200) {
+        createUser(user.uid, user.email);
+      }
+    }
+  };
+
   return (
-    <div>
+    <div className="p-body__nav">
       <AppBar position="fixed">
         <Toolbar>
           <IconButton onClick={toggleDrawer('left', true)} edge="start" color="inherit" aria-label="menu">
@@ -94,8 +109,16 @@ export const Header = () => {
               open={open}
               onClose={handleClose}
             >
-              <MenuItem onClick={handleClose}>Profile</MenuItem>
-              <MenuItem onClick={handleClose}>My account</MenuItem>
+              {
+                user ? (
+                  <div>
+                    <MenuItem onClick={handleClose}>Profil</MenuItem>
+                    <MenuItem onClick={() => {handleClose(); signOut();}}>Déconnexion</MenuItem>
+                  </div>
+                ) : (
+                    <MenuItem onClick={() => {handleClose(); signIn();}}>Connexion via Google</MenuItem>
+                )
+              }
             </Menu>
           </div>
         </Toolbar>
