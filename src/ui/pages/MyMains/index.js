@@ -1,28 +1,44 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,   } from 'react';
 import { getAllCharacters } from '../../../api/api';
-import { Card } from '@material-ui/core';
 
 export const MyMains = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [characters, setCharacters] = useState();
 
-  // useEffect( () => {
-  //   const fetchData = async () => {
-  //     setCharacters(await getAllCharacters());
-  //     setIsLoading(false);
-  //   }
-  //   fetchData();
-  // }, [setCharacters]);
+  useEffect( () => {
+    setIsLoading(true);
+    const chars = sessionStorage.getItem('characters');
+    const fetchData = async () => {
+      if(chars) {
+        const charsArray = chars.split(",");
+        const formatedCharacters = charsArray.map((character, index) => ({
+          'id': index,
+          'data': {
+            'name': character,
+          },
+        }));
+        setCharacters(formatedCharacters);
+        setIsLoading(false);
+      }
+      else {
+        setCharacters(await getAllCharacters());
+        setIsLoading(false);
+      }
+    }
+    fetchData();
+  }, [setCharacters]);
 
   return (
     <>
-      {/* {isLoading ?
+      {isLoading ?
         'Loading...'
           :
           (
-            characters.map((character, index) => <Card key={index}>{character.data.name}</Card>)
+            characters.map((character, index) => (
+              <div key={index}>{character.data.name}</div>
+            ))
           )
-      } */}
+      }
     </>
   );
 };

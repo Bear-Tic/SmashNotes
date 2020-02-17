@@ -4,7 +4,7 @@ import { Body } from './ui/components/Body';
 import { Header } from './ui/components/Header';
 import Nav from './ui/components/Nav';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { MuiThemeProvider } from '@material-ui/core';
+import { MuiThemeProvider, Container } from '@material-ui/core';
 import theme from './config/theme/theme';
 import { BrowserRouter as Router } from 'react-router-dom';
 import withFirebaseAuth from 'react-with-firebase-auth'
@@ -22,13 +22,14 @@ const App = ({ user, signOut, signInWithGoogle }) => {
   return (
     <>
       <MuiThemeProvider theme={theme}>
-      {console.log(user)}
         <CssBaseline />
         <div className="p-body">
           <Router>
             <Header user={user} signOut={signOut} signInWithGoogle={signInWithGoogle} />
             <div className="p-body__main">
-              <Body user={user} />
+              <Container>
+                <Body user={user} />
+              </Container>
             </div>
             <Nav />
           </Router>

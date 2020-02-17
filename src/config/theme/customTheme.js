@@ -58,6 +58,11 @@ const smashNotesTheme = {
   ],
   direction: 'ltr',
   overrides: {
+    MuiInputBase: {
+      input: {
+        color: white,
+      },
+    },
     MuiDrawer: {
       paper: {
         background: '#262626',

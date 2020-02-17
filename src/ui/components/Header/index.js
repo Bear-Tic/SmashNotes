@@ -9,6 +9,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
+import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
 import * as firebase from 'firebase';
 import 'firebase/auth';
@@ -64,7 +65,6 @@ export const Header = ({ user, signOut, signInWithGoogle }) => {
   const signIn = async () => {
     await signInWithGoogle();
     const user = await firebase.auth().currentUser;
-    console.log(user);
     if(user && user.uid && user.email) {
       const test = await getUser(user.uid);
       if(!test.id & test.status===200) {
@@ -76,52 +76,54 @@ export const Header = ({ user, signOut, signInWithGoogle }) => {
   return (
     <div className="p-body__nav">
       <AppBar position="fixed">
-        <Toolbar>
-          <IconButton onClick={toggleDrawer('left', true)} edge="start" color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h4" style={{ flexGrow: 1, color: 'white' }}>
-            SmashNotes
-          </Typography>
-          <div>
-            <IconButton
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleMenu}
-              color="inherit"
-              style={{ flexGrow: "1" }}
-            >
-              <AccountCircle />
+        <Container fixed>
+          <Toolbar disableGutters>
+            <IconButton onClick={toggleDrawer('left', true)} edge="start" color="inherit" aria-label="menu">
+              <MenuIcon />
             </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorEl}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={open}
-              onClose={handleClose}
-            >
-              {
-                user ? (
-                  <div>
-                    <MenuItem onClick={handleClose}>Profil</MenuItem>
-                    <MenuItem onClick={() => {handleClose(); signOut();}}>Déconnexion</MenuItem>
-                  </div>
-                ) : (
-                    <MenuItem onClick={() => {handleClose(); signIn();}}>Connexion via Google</MenuItem>
-                )
-              }
-            </Menu>
-          </div>
-        </Toolbar>
+            <Typography variant="h4" style={{ flexGrow: 1, color: 'white' }}>
+              SmashNotes
+            </Typography>
+            <div>
+              <IconButton
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleMenu}
+                color="inherit"
+                style={{ flexGrow: "1" }}
+              >
+                <AccountCircle />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={open}
+                onClose={handleClose}
+              >
+                {
+                  user ? (
+                    <div>
+                      <MenuItem onClick={handleClose}>Profil</MenuItem>
+                      <MenuItem onClick={() => {handleClose(); signOut();}}>Déconnexion</MenuItem>
+                    </div>
+                  ) : (
+                      <MenuItem onClick={() => {handleClose(); signIn();}}>Connexion via Google</MenuItem>
+                  )
+                }
+              </Menu>
+            </div>
+          </Toolbar>
+        </Container>
       </AppBar>
       <Drawer open={state.left} onClose={toggleDrawer('left', false)}>
         {sideList('left')}
