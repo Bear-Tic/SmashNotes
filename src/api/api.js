@@ -8,7 +8,7 @@ export const getAllCharacters = async () => {
   catch (error) {
     response = error;
   }
-  const characters = response.data.map(character => character.data.name);
+  const characters = response.data.map(character => character.data.name + '$' + character.data.imgUrl);
   sessionStorage.setItem('characters', characters);
   console.log(response.data);
   return response.data || response;

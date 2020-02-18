@@ -2,7 +2,7 @@ import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { TextField } from '@material-ui/core';
 
-const CustomtInput = ({ variant, label, fullWidth }) => {
+const CustomtInput = ({ variant, label, fullWidth, className }) => {
   const CssTextField = withStyles({
     root: {
       '& label': {
@@ -26,7 +26,7 @@ const CustomtInput = ({ variant, label, fullWidth }) => {
   })(TextField);
 
   return (
-    <CssTextField fullWidth={fullWidth} variant={variant} label={label} />
+    <CssTextField className={`${className}`} fullWidth={fullWidth} variant={variant} label={label} />
   );
 };
 

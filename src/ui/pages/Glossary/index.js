@@ -13,7 +13,7 @@ const words = [
 export const Glossary = () => {
   return (
     <div>
-      <h1 className="u-mt-2">Lexique</h1>
+      <h1 className="u-mt-0 u-mb-3">Lexique</h1>
       <CustomInput fullWidth variant="outlined" label="Rechercher un mot" />
       {words.map((word, index) => (
         <p key={index}>{console.log(word)}</p>

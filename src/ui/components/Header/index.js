@@ -76,7 +76,7 @@ export const Header = ({ user, signOut, signInWithGoogle }) => {
   return (
     <div className="p-body__nav">
       <AppBar position="fixed">
-        <Container fixed>
+        <Container>
           <Toolbar disableGutters>
             <IconButton onClick={toggleDrawer('left', true)} edge="start" color="inherit" aria-label="menu">
               <MenuIcon />

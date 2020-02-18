@@ -5,6 +5,7 @@
 // 1-atoms
 
 // 2-molecules
+@import './2-molecules/card.characters';
 
 // 3-organisms
 
@@ -14,3 +15,6 @@
 // 5-utils
 @import './5-utils/margin';
 @import './5-utils/padding';
+@import './5-utils/display';
+@import './5-utils/width';
+@import './5-utils/text';
