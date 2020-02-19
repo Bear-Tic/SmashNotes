@@ -39,8 +39,8 @@ const Nav = ({ history, location }) => {
       >
         <BottomNavigationAction icon={<BookTwoToneIcon />} onClick={() => history.push(myMains)} />
         <BottomNavigationAction icon={<PollTwoToneIcon />} onClick={() => history.push(matchUp)} />
-        <BottomNavigationAction icon={<HourglassFullTwoToneIcon onClick={() => history.push(matchHistory)} />} />
-        <BottomNavigationAction icon={<ImportContactsTwoToneIcon onClick={() => history.push(glossary)} />} />
+        <BottomNavigationAction icon={<HourglassFullTwoToneIcon />} onClick={() => history.push(matchHistory)} />
+        <BottomNavigationAction icon={<ImportContactsTwoToneIcon />} onClick={() => history.push(glossary)} />
       </BottomNavigation>
     </div>
   );
