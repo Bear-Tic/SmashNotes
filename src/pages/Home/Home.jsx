@@ -1,45 +1,28 @@
-import React, { useState, useEffect } from 'react';
-import { Box, Text } from '@chakra-ui/core';
-import { getAllCharacters } from 'api/api';
+import React from 'react';
+import { Box, Text, Image } from '@chakra-ui/core';
+import { useCharacters } from 'services/characters';
 
 export const Home = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [characters, setCharacters] = useState();
-
-  useEffect(() => {
-    setIsLoading(true);
-    const chars = sessionStorage.getItem('characters');
-    const fetchData = async () => {
-      if (chars) {
-        const charsArray = chars.split(',');
-        const formatedCharacters = charsArray.map((character, index) => {
-          const parseCharacter = character.split('$');
-          return {
-            id: index,
-            data: {
-              name: parseCharacter[0],
-              imgUrl: parseCharacter[1],
-            },
-          };
-        });
-        setCharacters(formatedCharacters);
-        setIsLoading(false);
-      } else {
-        setCharacters(await getAllCharacters());
-        setIsLoading(false);
-      }
-    };
-    fetchData();
-  }, [setCharacters]);
+  const {
+    isFetching, isLoading, data: characters, isError,
+  } = useCharacters();
 
   if (isLoading) {
     return 'Loading ...';
   }
 
+  if (isError) {
+    return 'Error';
+  }
+
+  if (isFetching) {
+    return 'Fetching...';
+  }
+
   return (
     <>
       <Box
-        position="relative"
+        position="fixed"
         w="100%"
         lineHeight="0"
         color="white"
@@ -67,13 +50,12 @@ export const Home = () => {
           <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="currentColor" />
         </svg>
       </Box>
-      <Box ml={10} mt={24}>
+      <Box ml={10} mt={40}>
         {
-          characters && characters.map((character, index) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <Box key={index}>
+          characters && characters.map((character) => (
+            <Box key={character.data.name}>
               {character.data.name}
-              <img className="u-my-2" src={character.data.imgUrl} alt="" height="80px" />
+              <Image src={character.data.imgUrl} alt="smashhh" h={32} />
             </Box>
           ))
         }

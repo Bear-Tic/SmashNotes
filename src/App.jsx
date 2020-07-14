@@ -13,7 +13,8 @@ import {
 } from '@chakra-ui/core';
 import { ViewportHeight } from 'layout/ViewportHeight';
 import { Navbar } from 'layout/Navbar';
-import { Home } from 'pages/Home';
+import { Home } from 'pages/Home/Home';
+import { Profile } from 'pages/Profile/Profile';
 import firebaseConfig from './firebase/firebase';
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
@@ -38,6 +39,9 @@ const App = (
           </Route>
           <Route exact path="/dashboard">
             <Home />
+          </Route>
+          <Route exact path="/profile">
+            <Profile />
           </Route>
         </Flex>
       </Switch>

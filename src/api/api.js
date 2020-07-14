@@ -1,17 +1,5 @@
 import axios from 'axios';
 
-export const getAllCharacters = async () => {
-  let response;
-  try {
-    response = await axios.get('https://us-central1-smashnotes-b07e9.cloudfunctions.net/app/api/characters');
-  } catch (error) {
-    response = error;
-  }
-  const characters = response.map((character) => `${character.data.name}$${character.data.imgUrl}`);
-  sessionStorage.setItem('characters', characters);
-  return response || response;
-};
-
 export const getAllUser = async () => {
   let response;
   try {

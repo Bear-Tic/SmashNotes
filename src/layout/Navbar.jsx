@@ -101,8 +101,8 @@ export const Navbar = () => {
           }}
           transition="color 0.3s ease"
         >
-          <Icon size={6} icon={FaUserCircle} mb={2} />
-          <Text fontSize="xs">Profil</Text>
+          <Icon size={6} icon={FaUserCircle} mb={2} mr={2} />
+          <Text fontSize="xs" mr={2}>Profil</Text>
           <MenuCorner
             style={{
               fill: theme.colors.brand[50],
