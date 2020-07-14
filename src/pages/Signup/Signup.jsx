@@ -2,8 +2,11 @@ import React from 'react';
 import { Button } from '@chakra-ui/core';
 import { createUser, getUser } from 'api/api';
 import { auth } from 'firebase';
+import {
+  Redirect,
+} from 'react-router-dom';
 
-export const Profile = ({ user, signOut, signInWithGoogle }) => {
+export const Signup = ({ signInWithGoogle, user }) => {
   const signIn = async () => {
     await signInWithGoogle();
     const user = await auth().currentUser;
@@ -16,16 +19,12 @@ export const Profile = ({ user, signOut, signInWithGoogle }) => {
   };
 
   return (
-    <div>
-      {
-      user ? (
-        <div>
-          <Button onClick={() => signOut()}>Déconnexion</Button>
-        </div>
+    <>
+      { user ? (
+        <Redirect to="/profile" />
       ) : (
         <Button onClick={() => signIn()}>Connexion via Google</Button>
-      )
-    }
-    </div>
+      )}
+    </>
   );
 };
