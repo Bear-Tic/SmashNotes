@@ -10,7 +10,7 @@ export const Icon = ({ size, icon: IconEl, ...props }) => (
 
 Icon.propTypes = {
   icon: PropTypes.func,
-  size: PropTypes.oneOf(['string', 'number']),
+  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 Icon.defaultProps = {

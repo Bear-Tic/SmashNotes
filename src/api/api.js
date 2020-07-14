@@ -7,10 +7,9 @@ export const getAllCharacters = async () => {
   } catch (error) {
     response = error;
   }
-  const characters = response.data.map((character) => `${character.data.name}$${character.data.imgUrl}`);
+  const characters = response.map((character) => `${character.data.name}$${character.data.imgUrl}`);
   sessionStorage.setItem('characters', characters);
-  console.log(response.data);
-  return response.data || response;
+  return response || response;
 };
 
 export const getAllUser = async () => {
@@ -20,7 +19,7 @@ export const getAllUser = async () => {
   } catch (error) {
     response = error;
   }
-  return response.data || response;
+  return response;
 };
 
 export const getUser = async (id) => {
@@ -30,7 +29,7 @@ export const getUser = async (id) => {
   } catch (error) {
     response = error;
   }
-  return response.data || response;
+  return response || response;
 };
 
 export const createUser = async (id, mail) => {

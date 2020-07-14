@@ -8,6 +8,7 @@ import {
   useRouteMatch,
 } from 'react-router-dom';
 import { FaBell, FaUserCircle } from 'react-icons/fa';
+import { ViewportHeight } from 'layout/ViewportHeight';
 
 const MenuCorner = ({ ...props }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" {...props}>
@@ -21,7 +22,7 @@ export const Navbar = () => {
   const profile = !!useRouteMatch('/profile');
 
   return (
-    <Flex alignItems="center" bg="brand.500" width="7rem" color="lightWhite" direction="column" justifyContent="space-between">
+    <ViewportHeight position="fixed" h="100%" alignItems="center" bg="brand.500" width="7rem" color="lightWhite" direction="column" justifyContent="space-between">
       <Flex w="100%" direction="column">
         <Flex as={RouterLink} to="/dashboard" p={4} mb={4} w="100%" justifyContent="center" h={20}>
           <Text fontSize="md" fontWeight="800">SmashNotes</Text>
@@ -50,7 +51,7 @@ export const Navbar = () => {
                 }}
                 transition="color 0.3s ease"
               >
-                <Icon w={6} h={6} icon={FaBell} mb={2} mr={2} />
+                <Icon size={6} icon={FaBell} mb={2} mr={2} />
                 <Text fontSize="xs" mr={2}>Dashboard</Text>
                 <MenuCorner
                   style={{
@@ -125,6 +126,6 @@ export const Navbar = () => {
           />
         </PseudoBox>
       </Box>
-    </Flex>
+    </ViewportHeight>
   );
 };
